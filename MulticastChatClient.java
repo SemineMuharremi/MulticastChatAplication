@@ -28,7 +28,7 @@ public class MulticastChatClient {
     }
 
     private void createGUI() {
-        JFrame frame = new JFrame(name + "'s Chat");
+        JFrame frame = new JFrame("Multicast Chat's - " + name);
         frame.setSize(500, 400);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
