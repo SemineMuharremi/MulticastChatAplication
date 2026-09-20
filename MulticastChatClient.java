@@ -96,10 +96,9 @@ public class MulticastChatClient {
                         socket.receive(packet);
                         String received = new String(packet.getData(), packet.getOffset(), packet.getLength());
 
-                        // Mos shfaq mesazhet qe jane te dërguara nga vetvetja
                         if (received.startsWith(name + ":")) continue;
 
-                        // Mos shfaq mesazhin e largimit që është dërguar nga vetvetja
+                        
                         if (received.contains(name + " left the chat")) continue;
 
                         chatArea.append(received + "\n");
@@ -138,7 +137,7 @@ public class MulticastChatClient {
 
     private void leaveChat(JFrame frame) {
         try {
-            // Dërgo mesazh largimi vetëm për të tjerët
+           
             String leaveMsg = "-" + name + " left the chat.";
             byte[] buf = leaveMsg.getBytes();
             DatagramPacket packet = new DatagramPacket(buf, buf.length, group, port);
@@ -147,7 +146,7 @@ public class MulticastChatClient {
             socket.leaveGroup(group);
             socket.close();
 
-            // Shfaq vetëm te klienti që largohet
+        
             chatArea.append("You left the  chat.\n");
 
             JOptionPane.showMessageDialog(frame, "You left the group chat.", "Exit", JOptionPane.INFORMATION_MESSAGE);
